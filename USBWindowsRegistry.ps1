@@ -1,1 +1,2 @@
-get-WmiObject -Class Win32_USBController | select [Property1], [Property2] | export-csv -path [output file path]\[output file].csv
+$Path = 'HKLM:\System\CurrentControlSet\Enum\USBStor\*\*'
+Get-ItemProperty -Path $Path | Select-Object -Property PSChildName, FriendlyName, CompatibleIDs, Mfg
